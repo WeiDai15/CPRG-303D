@@ -4,7 +4,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -19,8 +19,14 @@ import ToDoList from './ToDoList';
 import ToDoForm from './ToDoForm';
 
 function App() {
+  const [tasks, setTasks] = useState([
+    'Do laundry',
+    'Go to gym',
+    'Walk dog'
+    ]);
+  
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <ScrollView>
         <Pressable>
           <View style={[styles.task, styles.completed]}>
@@ -45,7 +51,7 @@ function App() {
         />
         <Button title="Add" />
       </View>
-      <ToDoList />
+      <ToDoList tasks={tasks} />
       <ToDoForm />
     </SafeAreaView>
   );
