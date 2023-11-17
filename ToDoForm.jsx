@@ -1,17 +1,24 @@
 import React from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
 
-const ToDoForm = () => {
+function ToDoForm({ addTask }) {
+  const [taskText, setTaskText] = useState('');
+
   return (
     <View style={styles.form}>
       <TextInput
         style={styles.input}
         placeholder="Add a new task..."
+        onChangeText={setTaskText}
+        value={taskText}
       />
-      <Button title="Add" />
+      <Button title="Add Task" onPress={() => {
+        addTask(taskText);
+        setTaskText('');
+      }} />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   form: {
