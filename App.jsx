@@ -26,13 +26,22 @@ function App() {
     'Go to gym',
     'Walk dog'
     ]);
+  
 const Stack = createStackNavigator();
-
+  return (
+  <NavigationContainer>
+  <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+  </NavigationContainer>
+  );
+  
 const addTask = (taskText) => {
   setTasks([...tasks, taskText]);
-};
-<NavigationContainer>  
+};  
   return (
+    <NavigationContainer>
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Pressable>
@@ -63,7 +72,6 @@ const addTask = (taskText) => {
     </SafeAreaView>
   );
 }
-</NavigationContainer>
 const styles = StyleSheet.create({
   task: {
     padding: 10,
