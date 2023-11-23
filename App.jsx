@@ -3,6 +3,8 @@
  *
  * @format
  */
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import React, {useState} from 'react';
 import {
@@ -24,11 +26,12 @@ function App() {
     'Go to gym',
     'Walk dog'
     ]);
+const Stack = createStackNavigator();
 
 const addTask = (taskText) => {
   setTasks([...tasks, taskText]);
 };
-  
+<NavigationContainer>  
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -60,7 +63,7 @@ const addTask = (taskText) => {
     </SafeAreaView>
   );
 }
-
+</NavigationContainer>
 const styles = StyleSheet.create({
   task: {
     padding: 10,
